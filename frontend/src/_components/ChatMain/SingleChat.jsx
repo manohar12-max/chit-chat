@@ -114,7 +114,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             <LoaderCircle size="50" className="text-green-900 animate-spin" />
           </div>
         ) : (
-          <div className="flex flex-col  scroll-m-1 ">
+          <div className="flex flex-col overflow-y-auto  scroll-m-1 ">
             <Messages messages={messages} />
           </div>
         )}

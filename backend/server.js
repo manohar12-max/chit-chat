@@ -14,10 +14,10 @@ connectDB()
 const app=express()
 app.use(
     cors(
-      {
-        origin: process.env.FRONTEND_URL, // Allow only your frontend
-        methods: "GET,POST,PUT,DELETE",
-    }
+    //   {
+    //     origin: process.env.FRONTEND_URL, // Allow only your frontend
+    //     methods: "GET,POST,PUT,DELETE",
+    // }
   )
   );
 app.use(express.json())
@@ -30,17 +30,17 @@ app.use("/api/chat",chatRoute)
 app.use("/api/message",messageRoute)
 
 // ---------------Deployment---------------
-const __dirname1 = path.resolve();
-if(process.env.NODE_ENV=="production"){
-  app.use(express.static(path.join(__dirname1,'/frontend/dist')))
-  app.get("*",(req, res)=>{
-    res.sendFile(path.resolve(__dirname1,'frontend','dist','index.html'))
-  })
-}else{
-  app.get("/", (req, res) => {
-    res.sendFile("Api running successfully")
-  })
-}
+// const __dirname1 = path.resolve();
+// if(process.env.NODE_ENV=="production"){
+//   app.use(express.static(path.join(__dirname1,'/frontend/dist')))
+//   app.get("*",(req, res)=>{
+//     res.sendFile(path.resolve(__dirname1,'frontend','dist','index.html'))
+//   })
+// }else{
+//   app.get("/", (req, res) => {
+//     res.sendFile("Api running successfully")
+//   })
+// }
 
 // ---------------Deployment---------------
 
