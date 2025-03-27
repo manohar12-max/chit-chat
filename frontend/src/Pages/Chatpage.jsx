@@ -7,12 +7,13 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 const Chatpage = () => {
-  const { user } = ChatState();
+  const { user ,selectedChat} = ChatState();
   const [fetchAgain,setFetchAgain]=useState(false)
   return (
     <div className="h-screen overflow-hidden">
       <NavMain />
-      <div className="flex h-full gap-2.5 p-4 pb-18 ">
+      <div className="flex h-full gap-2.5 p-4 pb-18 md:flex-row flex-col ">
+        
         {user && <MyChats fetchAgain={fetchAgain} />}
         {user && <ChatBox fetchAgain={fetchAgain} setFetchAgain={setFetchAgain}  />}
       </div>

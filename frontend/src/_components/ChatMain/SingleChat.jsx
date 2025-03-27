@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import UpdateGroupChatModal from "../Models/GroupChat/UpdateGroupChatModal";
-import { Eye, Loader, LoaderCircle, Settings } from "lucide-react";
+import { ArrowBigLeft, Eye, Loader, LoaderCircle, Settings } from "lucide-react";
 import { ChatState } from "@/Context/ChatProvider";
 import ProfileModal from "../Models/ProfileModal";
 import { getSenderFull, getSenderName } from "@/folder/ChatLogics";
@@ -11,7 +11,7 @@ import { io } from "socket.io-client";
 const EndPoint = "https://chit-chat-1-t3my.onrender.com";
 var socket, selectedChatCompare;
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
-  const { user, selectedChat ,notifications,setNotifications} = ChatState();
+  const { user, selectedChat ,notifications,setNotifications,setSelectedChat} = ChatState();
   const [showGroup, setShowGroup] = useState(false);
   const [show, setShow] = useState(false);
   const [text, setText] = useState("");
@@ -92,6 +92,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   return selectedChat ? (
     <>
       <div className="flex justify-between px-2">
+        <ArrowBigLeft onClick={()=>{setSelectedChat(null)}} className="md:hidden block cursor-pointer"/>
         <h2 className="text-2xl font-bold text-gray-700">
           {selectedChat?.isGroupChat ? (
             selectedChat.chatName
