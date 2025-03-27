@@ -15,7 +15,7 @@ const ChatProvider = ({ children }) => {
       setUser(userInfo);
     } else {
       setUser(null);
-      navigate("/login");
+      navigate("/auth");
     }
   }, [navigate]);
   return (

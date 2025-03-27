@@ -2,10 +2,12 @@ import { ChatState } from "@/Context/ChatProvider";
 import React, { useState } from "react";
 import Avatar from "../Avatar/Avatar";
 import NavNotification from "./NavNotification";
+import { useNavigate } from "react-router-dom";
 
 const NavUser = () => {
   const { user } = ChatState(); // ✅ Destructure user from the ChatState
   const [show, setShow] = useState(false);
+  const navigate=useNavigate()
   if (!user || !user.pic) {
     return <div className="text-white">Loading...</div>; // Handle undefined user
   }
@@ -56,7 +58,7 @@ const NavUser = () => {
               onClick={() => {
                 setShow(false);
                 localStorage.removeItem("userInfo");
-                window.location.href = "/login"; // Redirect to login page
+                navigate("/auth")
               }}
               className="w-full text-white bg-green-500 py-2 rounded-3xl cursor-pointer"
             >

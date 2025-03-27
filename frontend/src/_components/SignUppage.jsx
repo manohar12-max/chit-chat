@@ -6,7 +6,7 @@ import { LoaderCircle } from "lucide-react";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const SignUppage = () => {
+const SignUppage = ({isLogin,setIsLogin}) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -148,8 +148,10 @@ const SignUppage = () => {
             </Button>
             <p className=" text-center">
               Already have an account ?{" "}
-              <span className="underline cursor-pointer">
-                <a href="/login">click here</a>
+              <span 
+              onClick={() => setIsLogin(!isLogin)}
+              className="underline cursor-pointer">
+                click here
               </span>
             </p>
           </div>

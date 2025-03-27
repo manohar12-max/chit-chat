@@ -3,15 +3,20 @@ import { useNavigate } from "react-router-dom";
 
 const Homepage = () => {
   const navigate = useNavigate();
+
   useEffect(() => {
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+    console.log("Homepage - User Info from localStorage:", userInfo);
+
     if (userInfo) {
+      console.log("Redirecting to /chats");
       navigate("/chats");
     } else {
-    
-      navigate("/login");
+      console.log("Redirecting to /auth");
+      navigate("/auth");
     }
-  }, [navigate]);
+  }, []);
+
   return <div>Home</div>;
 };
 
