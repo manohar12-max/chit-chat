@@ -8,7 +8,7 @@ import axios from "axios";
 import Messages from "./Messages";
 import UserInfo from "./UserInfo";
 import { io } from "socket.io-client";
-const EndPoint = "http://localhost:5000";
+const EndPoint = "https://chit-chat-1-t3my.onrender.com";
 var socket, selectedChatCompare;
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   const { user, selectedChat ,notifications,setNotifications} = ChatState();
@@ -28,7 +28,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
           "Content-Type": "application/json",
         };
         const { data } = await axios.post(
-          `http://localhost:5000/api/message`,
+          `https://chit-chat-1-t3my.onrender.com/api/message`,
           { content: text, chatId: selectedChat._id },
           config
         );
@@ -48,7 +48,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         headers: { Authorization: `Bearer ${user.token}` },
       };
       const { data } = await axios.get(
-        `http://localhost:5000/api/message/${selectedChat._id}`,
+        `https://chit-chat-1-t3my.onrender.com/api/message/${selectedChat._id}`,
         config
       );
 

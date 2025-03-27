@@ -55,7 +55,7 @@ const SignUppage = () => {
                 'Content-Type': 'application/json',
             },
         }
-        const {data} = await axios.post("http://localhost:5000/api/user", {name, email, password, pic},config);
+        const {data} = await axios.post("https://chit-chat-1-t3my.onrender.com/api/user", {name, email, password, pic},config);
        
         localStorage.setItem("userInfo",JSON.stringify(data))
         navigate("/chats")

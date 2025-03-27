@@ -30,7 +30,7 @@ const CreateGroupChatModal = ({ setShow }) => {
         };
 
         const { data } = await axios.get(
-          `http://localhost:5000/api/user?search=${search}`,
+          `https://chit-chat-1-t3my.onrender.com/api/user?search=${search}`,
           config
         );
         setSearchResult(data);
@@ -77,7 +77,7 @@ const CreateGroupChatModal = ({ setShow }) => {
         users:JSON.stringify(groupMem.map((user)=> user._id))
       } // ✅ Wrap in object if API expects this format
       const { data } = await axios.post(
-        `http://localhost:5000/api/chat/group`,
+        `https://chit-chat-1-t3my.onrender.com/api/chat/group`,
         groupData,
         config
       );

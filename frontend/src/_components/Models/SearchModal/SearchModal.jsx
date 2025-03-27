@@ -31,7 +31,7 @@ const SearchModal = ({ setShow }) => {
       };
 
       const { data } = await axios.get(
-        `http://localhost:5000/api/user?search=${search}`,
+        `https://chit-chat-1-t3my.onrender.com/api/user?search=${search}`,
         config
       );
       setSearchResult(data);
@@ -52,7 +52,7 @@ const SearchModal = ({ setShow }) => {
         },
       };
       const { data } = await axios.post(
-        `http://localhost:5000/api/chat`,
+        `hhttps://chit-chat-1-t3my.onrender.com/api/chat`,
         { userId },
         config
       );

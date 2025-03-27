@@ -31,7 +31,7 @@ const UpdateGroupChatModal = ({ setShow, fetchAgain, setFetchAgain,fetchMessages
         };
 
         const { data } = await axios.get(
-          `http://localhost:5000/api/user?search=${search}`,
+          `https://chit-chat-1-t3my.onrender.com/api/user?search=${search}`,
           config
         );
         setSearchResult(data);
@@ -69,7 +69,7 @@ const UpdateGroupChatModal = ({ setShow, fetchAgain, setFetchAgain,fetchMessages
         },
       };
       const { data } = await axios.put(
-        `http://localhost:5000/api/chat/rename`,
+        `https://chit-chat-1-t3my.onrender.com/api/chat/rename`,
         { chatId: selectedChat._id, newChatName: name },
         config
       );
@@ -91,7 +91,7 @@ const UpdateGroupChatModal = ({ setShow, fetchAgain, setFetchAgain,fetchMessages
         },
       };
       const { data } = await axios.put(
-        `http://localhost:5000/api/chat/groupAdd`,
+        `https://chit-chat-1-t3my.onrender.com/api/chat/groupAdd`,
         { chatId: selectedChat._id, userId: userId },
         config
       );
@@ -114,7 +114,7 @@ const UpdateGroupChatModal = ({ setShow, fetchAgain, setFetchAgain,fetchMessages
         },
       };
       const { data } = await axios.put(
-        `http://localhost:5000/api/chat/groupRemove`,
+        `https://chit-chat-1-t3my.onrender.com/api/chat/groupRemove`,
         { chatId: selectedChat._id, userId: userId },
         config
       );

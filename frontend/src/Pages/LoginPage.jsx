@@ -25,7 +25,7 @@ const Loginpage = () => {
                 'Content-Type': 'application/json',
             },
         }
-        const {data} = await axios.post("http://localhost:5000/api/user/login", { email, password},config);
+        const {data} = await axios.post("https://chit-chat-1-t3my.onrender.com/api/user/login", { email, password},config);
         console.log(data);
         localStorage.setItem("userInfo",JSON.stringify(data))
         navigate("/chats")
