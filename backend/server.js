@@ -51,7 +51,7 @@ const server=app.listen(process.env.PORT || 5000, console.log("Server listening 
 const io=require("socket.io")(server,{
   pingTimeout:60000,// the amount of time it will wait while being inactive if user is inactive for more than 60s the connection will go off saving bandwindth
   cors: {
-    origin: "http://localhost:5173",
+    origin: "https://chit-chat-xi-topaz.vercel.app",
     
   },
 })
