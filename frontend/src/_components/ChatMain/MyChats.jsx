@@ -6,6 +6,7 @@ import { LoaderPinwheel } from "lucide-react";
 import React, { useEffect, useState } from "react";
 
 import CreateGroupChatModal from "../Models/GroupChat/CreateGroupChatModal";
+import { toast } from "sonner";
 
 const MyChats = ({ fetchAgain }) => {
   const { user, selectedChat, setSelectedChat, chats, setChats } = ChatState();
@@ -27,6 +28,7 @@ const MyChats = ({ fetchAgain }) => {
       );
       setChats(data);
     } catch (error) {
+      toast("Error getting chat data")
       console.error("Error accessing chat:", error);
     } finally {
       setLoading(false);
@@ -74,7 +76,14 @@ const MyChats = ({ fetchAgain }) => {
             <div
               key={chat._id}
               onClick={() => setSelectedChat(chat)}
-              className={`p-2 mb-0.5 cursor-pointer flex justify-between rounded-br-4xl ${
+              className={`p-2
+                 mb-0.5 
+                cursor-pointer 
+                flex 
+                justify-between 
+                overflow-hidden
+                rounded-l-2xl
+                rounded-br-4xl ${
                 selectedChat?._id === chat._id
                   ? "bg-green-800 text-white"
                   : "bg-white text-black"
@@ -83,8 +92,11 @@ const MyChats = ({ fetchAgain }) => {
               <p className="font-bold">
                 {!chat.isGroupChat
                   ? getSender(loggedUser, chat.users || [])
-                  : chat.chatName}
+                  : chat.chatName }
               </p>
+              <div className="bg-green-600 w-[40px] rounded-br-4xl" >
+
+              </div>
             </div>
           ))
         ) : (

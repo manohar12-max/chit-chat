@@ -3,6 +3,7 @@ import { ChatState } from "@/Context/ChatProvider";
 import axios from "axios";
 import React, { useCallback, useEffect, useState } from "react";
 import SingleUser from "./SingleUser";
+import { toast } from "sonner";
 
 const CreateGroupChatModal = ({ setShow }) => {
   const { chats, user,setChats } = ChatState();
@@ -81,6 +82,7 @@ const CreateGroupChatModal = ({ setShow }) => {
         groupData,
         config
       );
+      toast("Group created successfully")
       setChats([data,...chats])  
       setShow(false)
     } catch (err) {

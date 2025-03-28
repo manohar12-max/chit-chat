@@ -5,6 +5,7 @@ import axios from "axios";
 import { LoaderCircle } from "lucide-react";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "sonner"
 
 const Loginpage = ({isLogin,setIsLogin}) => {
   
@@ -28,10 +29,12 @@ const Loginpage = ({isLogin,setIsLogin}) => {
         const {data} = await axios.post("https://chit-chat-1-t3my.onrender.com/api/user/login", { email, password},config);
         console.log(data);
         localStorage.setItem("userInfo",JSON.stringify(data))
+        toast("Logged in successfully")
         navigate("/chats")
     }
     catch(err) {
         console.log(err);
+        toast.error("Invalid credentials")
         setLoading(false);
     }
   };

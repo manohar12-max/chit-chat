@@ -3,6 +3,7 @@ import { ChatState } from "@/Context/ChatProvider";
 import axios from "axios";
 import React, { useCallback, useEffect, useState } from "react";
 import SingleUser from "./SingleUser";
+import { toast } from "sonner";
 
 const UpdateGroupChatModal = ({ setShow, fetchAgain, setFetchAgain,fetchMessages }) => {
   const { chats, user, setChats, selectedChat, setSelectedChat } = ChatState();
@@ -73,6 +74,7 @@ const UpdateGroupChatModal = ({ setShow, fetchAgain, setFetchAgain,fetchMessages
         { chatId: selectedChat._id, newChatName: name },
         config
       );
+      toast("Group renamed successfully")
       setSelectedChat(data);
       setFetchAgain(!fetchAgain); // Assuming setFetchAgain triggers re-fetching data
     } catch (err) {
@@ -95,6 +97,7 @@ const UpdateGroupChatModal = ({ setShow, fetchAgain, setFetchAgain,fetchMessages
         { chatId: selectedChat._id, userId: userId },
         config
       );
+      toast("User added to group successfully")
       setSelectedChat(data);
       setFetchAgain(!fetchAgain); // Assuming setFetchAgain triggers re-fetching data
       setShow(false);
@@ -118,8 +121,9 @@ const UpdateGroupChatModal = ({ setShow, fetchAgain, setFetchAgain,fetchMessages
         { chatId: selectedChat._id, userId: userId },
         config
       );
+   
       userId==user._id ? setSelectedChat(null): setSelectedChat(data)
-      
+      toast("User removed from group successfully")
       setFetchAgain(!fetchAgain); // Assuming setFetchAgain triggers re-fetching data
       fetchMessages()
       setShow(false);

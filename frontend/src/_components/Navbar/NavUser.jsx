@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Avatar from "../Avatar/Avatar";
 import NavNotification from "./NavNotification";
 import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 const NavUser = () => {
   const { user } = ChatState(); // ✅ Destructure user from the ChatState
@@ -58,7 +59,8 @@ const NavUser = () => {
               onClick={() => {
                 setShow(false);
                 localStorage.removeItem("userInfo");
-                navigate("/auth")
+                navigate("/auth");
+                toast("Logged out successfully")
               }}
               className="w-full text-white bg-green-500 py-2 rounded-3xl cursor-pointer"
             >
