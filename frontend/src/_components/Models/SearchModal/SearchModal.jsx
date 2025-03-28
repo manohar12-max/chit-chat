@@ -52,7 +52,7 @@ const SearchModal = ({ setShow }) => {
         },
       };
       const { data } = await axios.post(
-        `hhttps://chit-chat-1-t3my.onrender.com/api/chat`,
+        `https://chit-chat-1-t3my.onrender.com/api/chat`,
         { userId },
         config
       );
